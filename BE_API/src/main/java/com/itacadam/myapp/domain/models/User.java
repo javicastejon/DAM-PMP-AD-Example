@@ -1,0 +1,58 @@
+package com.itacadam.myapp.domain.models;
+
+public class User {
+
+    public Long id;
+    public String nombre;
+    public String contrasena;
+    public int edad;
+    public boolean administrador;
+  
+    public User() {
+    }
+
+    public User(Long id,String nombre, String contrasena, int edad, boolean administrador) {
+        this.id = id;
+        this.nombre = nombre;
+        this.contrasena = contrasena;
+        this.edad = edad;
+        this.administrador = administrador;
+    }
+
+
+    
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getContrasena() {
+        return contrasena;
+    }
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+    public int getEdad() {
+        return edad;
+    }
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+    public boolean isAdministrador() {
+        return administrador;
+    }
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+}
