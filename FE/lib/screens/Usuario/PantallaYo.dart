@@ -16,23 +16,23 @@ class _PantallaYoState extends State<PantallaYo> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           //Text("Implementar la pantalla Yo"),
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           ElevatedButton.icon(
             style: CustomButtonStyles.botonesDefecto,
-            icon: Icon(Icons.email),
+            icon: const Icon(Icons.email),
             onPressed: () {
               //Pantalla Mis pedidos
             }, 
-            label: Text("Contacto"),
+            label: const Text("Contacto"),
           ),
-          SizedBox(height: 30,),
+          const SizedBox(height: 30,),
           ElevatedButton.icon(
             style: CustomButtonStyles.botonesDefecto,
-            icon: Icon(Icons.account_circle),
+            icon: const Icon(Icons.account_circle),
             onPressed: () {
               //Pantalla Mis pedidos
             }, 
-            label: Text("Editar usuario"),
+            label: const Text("Editar usuario"),
           ),
           /*
           SizedBox(height: 30,),

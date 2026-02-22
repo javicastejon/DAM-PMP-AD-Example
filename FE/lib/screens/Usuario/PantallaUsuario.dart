@@ -21,7 +21,7 @@ class _PantallaSecundaria extends State<PantallaUsuario> {
   void _pantallaPrincipal(){
     Navigator.push(
       context, 
-      MaterialPageRoute(builder: (context) => PantallaInicioSesion())
+      MaterialPageRoute(builder: (context) => const PantallaInicioSesion())
     );
   }
 
@@ -42,14 +42,14 @@ class _PantallaSecundaria extends State<PantallaUsuario> {
         page = PantallaPedidos(nombreUsuario: widget.nombreUsuario,);
         break;
       case 2:
-        page = PantallaYo();
+        page = const PantallaYo();
         break;
       default:
         throw UnimplementedError('no widget for $selectedBar');
     }
 
     return Scaffold(
-      drawer: DrawerGeneral(),
+      drawer: const DrawerGeneral(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text("Bienvenido ${widget.nombreUsuario}"),
@@ -68,17 +68,17 @@ class _PantallaSecundaria extends State<PantallaUsuario> {
         elevation: 0,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: const Icon(Icons.home),
             label: 'Home',
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
+            icon: const Icon(Icons.shopping_bag),
             label: 'Pedidos',
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
+            icon: const Icon(Icons.account_circle),
             label: 'Yo',
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           ),

@@ -111,7 +111,7 @@ class _GestionPedidosState extends State<GestionPedidos> {
                                                   pedidoProvider
                                                       .pedidos[index]);
                                             },
-                                            icon: Icon(Icons.edit)),
+                                            icon: const Icon(Icons.edit)),
                                       ],
                                     ),
                                   ],

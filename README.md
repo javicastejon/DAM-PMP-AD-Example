@@ -52,53 +52,60 @@ En el caso del backend, la arquitectura de esta solución sigue un modelo clean 
 ```mermaid
 flowchart TB
 
-    %% Presentation Layer
+    %% =========================
+    %% Presentation
+    %% =========================
     subgraph Presentation["Presentation Layer"]
-        C[Controllers<br/>EntityController]
-        D[DTOs<br/>Request / Response]
+        direction TB
+        C[Controllers]
+        D[DTOs]
         E[GlobalExceptionHandler]
+        D --> C
+        E --> C
     end
 
-    %% Application Layer
+    %% =========================
+    %% Application
+    %% =========================
     subgraph Application["Application Layer"]
-        S[Services<br/>EntityService]
+        direction TB
+        S[Services<br/>Casos de uso]
     end
 
-    %% Domain Layer
+    %% =========================
+    %% Domain
+    %% =========================
     subgraph Domain["Domain Layer"]
-        M[Entities<br/>User / Product / Order]
-        R[Repositories<br/>Interfaces]
+        direction TB
+        M[Domain Entities<br/>User / Product / Order]
+        R[Repository Interfaces]
         X[Domain Exceptions]
     end
 
-    %% Infrastructure Layer
+    %% =========================
+    %% Infrastructure
+    %% =========================
     subgraph Infrastructure["Infrastructure Layer"]
+        direction TB
         P[Persistence]
-        J[Entities JPA]
-        JR[JpaRepository]
         A[Repository Adapters]
+        J[Jpa Entities]
+        JR[JpaRepository]
         DB[(Database)]
+
+        A --> JR
+        JR --> DB
+        A --> J
     end
 
-    %% Relationships
+    %% =========================
+    %% Cross-layer dependencies
+    %% =========================
     C --> S
-    D --> C
-    E --> C
-
     S --> M
     S --> R
     S --> X
-
     A --> R
-    A --> J
-    A --> JR
-
-    JR --> DB
-
-    %% Grouping
-    P --- J
-    P --- JR
-    P --- A
 ```
 
 # Estructura de carpetas

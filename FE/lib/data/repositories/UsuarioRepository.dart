@@ -1,8 +1,12 @@
 import 'package:flutter_proyecto/data/models/user.dart';
 import 'package:flutter_proyecto/data/services/ApiService.dart';
+import 'package:dio/dio.dart';
 
 class UsuarioRepository {
-  final ApiService _apiService = ApiService();
+  final ApiService _apiService;
+
+  UsuarioRepository({ApiService? apiService})
+      : _apiService = apiService ?? ApiService();
 
   Future<List<User>> getListaUsuarios() async {
     try {

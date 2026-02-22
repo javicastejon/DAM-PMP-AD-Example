@@ -51,7 +51,7 @@ class _PantallaComprasState extends State<PantallaCompras> {
         _productoProvider.productos[index]
             .setStock(_productoProvider.productos[index].stock - cantidad);
         productosComprados.add(
-            "${cantidad} x ${_productoProvider.productos[index].getNombre()}");
+            "$cantidad x ${_productoProvider.productos[index].getNombre()}");
         _precioTotal = _precioTotal +
             (cantidad * _productoProvider.productos[index].getPrecio());
       }
@@ -180,7 +180,7 @@ class _PantallaComprasState extends State<PantallaCompras> {
                                   },
                                 ),
                                 Text("${cantidades[index]}",
-                                    style: TextStyle(fontSize: 18)),
+                                    style: const TextStyle(fontSize: 18)),
                                 IconButton(
                                   icon: const Icon(Icons.add,
                                       color: Colors.green),
@@ -200,8 +200,8 @@ class _PantallaComprasState extends State<PantallaCompras> {
                 onPressed: () {
                   _realizarCompra();
                 },
-                icon: Icon(Icons.shopping_cart),
-                label: Text("Realizar compra")),
+                icon: const Icon(Icons.shopping_cart),
+                label: const Text("Realizar compra")),
             const SizedBox(height: 20),
           ],
         ),

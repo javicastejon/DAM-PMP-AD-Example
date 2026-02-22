@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_proyecto/data/models/pedidos.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/PedidoProvider.dart';
-import '../../providers/ProductoProvider.dart';
 
 class PantallaPedidos extends StatefulWidget {
   const PantallaPedidos({super.key, required this.nombreUsuario});
