@@ -1,9 +1,13 @@
 package com.itacadam.myapp.domain.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+import com.itacadam.myapp.domain.models.Order;
 
-import com.itacadam.myapp.infrastructure.persistence.entity.OrderEntity;
+public interface OrderRepository {
 
-
-public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
+    Order save(Order order);
+    Optional<Order> findById(Long id);
+    List<Order> findAll();
+    void deleteById(Long id);
 }

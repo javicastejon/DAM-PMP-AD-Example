@@ -5,9 +5,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.itacadam.myapp.domain.models.Product;
 import com.itacadam.myapp.domain.repository.ProductRepository;
-import com.itacadam.myapp.infrastructure.persistence.entity.ProductEntity;
-import com.itacadam.myapp.presentation.dto.request.ProductCreationRequest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,35 +23,31 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public ProductEntity createProduct(ProductCreationRequest productCreationRequest) {
-        return productRepository.save(mapToProduct(productCreationRequest));
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
     }
 
     public void removeProduct(Long id) {
         productRepository.deleteById(id);
     }
 
-    private ProductEntity mapToProduct(ProductCreationRequest createRequest) {
-        ProductEntity product = new ProductEntity();
-        product.setNombre(createRequest.nombre());
-        product.setDescripcion(createRequest.descripcion());
-        product.setImagenPath(createRequest.imagenPath());
-        product.setStock(createRequest.stock());
-        product.setPrecio(createRequest.precio());
-        return product;
-    }
-
-    public Optional<ProductEntity> getProduct(final long id) {
+    public Optional<Product> getProduct(final long id) {
         return productRepository.findById(id);
     }
 
-    public List<ProductEntity> getAllProducts() {
+    public Product update(Long id, Product product) {
+        getProduct(id);
+        return productRepository.save(new Product(id, product.getNombre(), product.getDescripcion(), product.getImagenPath(), product.getStock(), product.getPrecio()));
+    }
+
+    public List<Product> getAllProducts() {
+        logger.info("Listado de productos");
+
         try {
             return productRepository.findAll();
         } catch (Exception e) {
-            logger.error("Error en listado de productos {}", e.getMessage());
-            return new ArrayList<>(); // Devuelve una lista vacía en caso de error
-        }
+            logger.error("Error en listado de productos {}", e);
+            return new ArrayList<>();
+        }       
     }
-
 }

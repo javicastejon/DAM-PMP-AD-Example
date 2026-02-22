@@ -1,37 +1,17 @@
-package com.itacadam.myapp.infrastructure.persistence.entity;
+package com.itacadam.myapp.domain.models;
 
-import jakarta.persistence.*;
-
-import java.util.Objects;
-
-@Entity
-@Table(name = "PRODUCT")
-public class ProductEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class Product {
     private Long id;
-
-    @Column(name = "nombre")
     private String nombre;
-
-    @Column(name = "descripcion")
     private String descripcion;
-
-
-    @Column(name = "imagenPath")
     private String imagenPath;
-
-    @Column(name = "stock")
     private int stock;
-
-    @Column(name = "precio")
     private double precio;
 
-    public ProductEntity() {
+    public Product() {
     }
 
-    public ProductEntity(Long id, String nombre, String descripcion, String imagenPath, int stock, double precio) {
+    public Product(Long id, String nombre, String descripcion, String imagenPath, int stock, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -39,8 +19,6 @@ public class ProductEntity {
         this.stock = stock;
         this.precio = precio;
     }
-
-    
 
     public Long getId() {
         return id;
@@ -89,18 +67,4 @@ public class ProductEntity {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ProductEntity product = (ProductEntity) o;
-        return Objects.equals(id, product.id) && Objects.equals(nombre, product.nombre);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nombre);
-    }
-
 }

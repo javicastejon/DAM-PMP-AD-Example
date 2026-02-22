@@ -35,7 +35,18 @@ public class OrderEntity {
     @Column(name = "comprador")
     private String comprador;
 
-    
+        
+    public OrderEntity() {
+    }
+
+    public OrderEntity(Long numeroPedido, String descripcion, double precio, String estado, String comprador) {
+        this.numeroPedido = numeroPedido;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.estado = estado;
+        this.comprador = comprador;
+    }
+
     public Long getNumeroPedido() {
         return numeroPedido;
     }

@@ -1,8 +1,13 @@
 package com.itacadam.myapp.domain.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+import java.util.Optional;
+import com.itacadam.myapp.domain.models.Product;
 
-import com.itacadam.myapp.infrastructure.persistence.entity.ProductEntity;
+public interface ProductRepository {
 
-public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+    Product save(Product product);
+    Optional<Product> findById(Long id);
+    List<Product> findAll();
+    void deleteById(Long id);
 }

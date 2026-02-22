@@ -2,11 +2,11 @@ package com.itacadam.myapp.domain.models;
 
 public class User {
 
-    public Long id;
-    public String nombre;
-    public String contrasena;
-    public int edad;
-    public boolean administrador;
+    private Long id;
+    private String nombre;
+    private String contrasena;
+    private int edad;
+    private boolean administrador;
   
     public User() {
     }
