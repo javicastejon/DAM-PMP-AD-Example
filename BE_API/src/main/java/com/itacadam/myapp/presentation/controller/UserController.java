@@ -40,7 +40,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public UserResponse getById(@PathVariable Long id) {
-        return mapper.toResponse(service.getUser(id).orElse(null));
+        return mapper.toResponse(service.getUser(id));
     }
 
     @DeleteMapping("/{id}")

@@ -40,7 +40,7 @@ public class OrderController {
 
     @GetMapping("/{id}")
     public OrderResponse getById(@PathVariable Long id) {
-        return _mapper.toResponse(_service.getOrder(id).orElse(null));
+        return _mapper.toResponse(_service.getOrder(id));
     }
 
     @DeleteMapping("/{id}")

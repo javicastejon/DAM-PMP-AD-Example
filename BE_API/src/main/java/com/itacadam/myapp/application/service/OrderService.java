@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.itacadam.myapp.domain.exception.NotFoundException;
 import com.itacadam.myapp.domain.models.Order;
 import com.itacadam.myapp.domain.repository.OrderRepository;
 
@@ -32,8 +33,9 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
-    public Optional<Order> getOrder(final long id) {
-        return orderRepository.findById(id);
+    public Order getOrder(final long id) {
+        return orderRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Order", id));
     }
 
     public Order update(Long id, Order order) {

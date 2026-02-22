@@ -39,7 +39,7 @@ public class ProductController {
 
     @GetMapping("/{id}")
     public ProductResponse getById(@PathVariable Long id) {
-        return _mapper.toResponse(productService.getProduct(id).orElse(null));
+        return _mapper.toResponse(productService.getProduct(id));
     }
 
     @DeleteMapping("/{id}")

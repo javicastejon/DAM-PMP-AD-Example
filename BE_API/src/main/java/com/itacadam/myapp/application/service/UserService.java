@@ -1,14 +1,12 @@
 package com.itacadam.myapp.application.service;
 import org.springframework.stereotype.Service;
 
+import com.itacadam.myapp.domain.exception.NotFoundException;
 import com.itacadam.myapp.domain.models.User;
 import com.itacadam.myapp.domain.repository.UserRepository;
-import com.itacadam.myapp.infrastructure.persistence.entity.UserEntity;
-import com.itacadam.myapp.presentation.dto.request.UserRequest;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,8 +30,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public Optional<User> getUser(final long id) {
-        return userRepository.findById(id);
+    public User getUser(final long id) {
+        return userRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("User", id));
     }
 
     public User update(Long id, User user) {

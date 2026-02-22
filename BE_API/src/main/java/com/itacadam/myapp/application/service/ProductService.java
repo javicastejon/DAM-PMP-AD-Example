@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.itacadam.myapp.domain.exception.NotFoundException;
 import com.itacadam.myapp.domain.models.Product;
 import com.itacadam.myapp.domain.repository.ProductRepository;
 
@@ -31,8 +32,9 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
-    public Optional<Product> getProduct(final long id) {
-        return productRepository.findById(id);
+    public Product getProduct(final long id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Product", id));
     }
 
     public Product update(Long id, Product product) {
