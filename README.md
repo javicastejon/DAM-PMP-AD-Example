@@ -44,7 +44,7 @@ A continuación, se dispone de un ejemplo de configuración para poder realizar 
 Pendiente de implementar (representación Flutter/Dart)
 
 ## Backend
-En el caso del backend, la arquitectura de esta solución sigue un modelo clean architectura estructurado por capas
+En el caso del backend, la arquitectura de esta solución sigue un modelo "clean architecture" estructurado por capas
 
 ![](doc/images/clean-architecture.png)
 
