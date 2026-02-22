@@ -39,7 +39,70 @@ A continuación, se dispone de un ejemplo de configuración para poder realizar 
    ```
 
 # Arquitectura de la solución 
-Pendiente de implementar (representación Flutter/Dart + API Spring WEB + ORM Hibernate + MySQL)
+
+## Frontend
+Pendiente de implementar (representación Flutter/Dart)
+
+## Backend
+En el caso del backend, la arquitectura de esta solución sigue un modelo clean architectura estructurado por capas
+
+![](doc/images/clean-architecture.png)
+
+#### API Spring Web + JPA/ORM Hibernate +  MySQL
+```mermaid
+flowchart TB
+
+    %% Presentation Layer
+    subgraph Presentation["Presentation Layer"]
+        C[Controllers<br/>EntityController]
+        D[DTOs<br/>Request / Response]
+        E[GlobalExceptionHandler]
+    end
+
+    %% Application Layer
+    subgraph Application["Application Layer"]
+        S[Services<br/>EntityService]
+    end
+
+    %% Domain Layer
+    subgraph Domain["Domain Layer"]
+        M[Entities<br/>User / Product / Order]
+        R[Repositories<br/>Interfaces]
+        X[Domain Exceptions]
+    end
+
+    %% Infrastructure Layer
+    subgraph Infrastructure["Infrastructure Layer"]
+        P[Persistence]
+        J[Entities JPA]
+        JR[JpaRepository]
+        A[Repository Adapters]
+        DB[(Database)]
+    end
+
+    %% Relationships
+    C --> S
+    D --> C
+    E --> C
+
+    S --> M
+    S --> R
+    S --> X
+
+    A --> R
+    A --> J
+    A --> JR
+
+    JR --> DB
+
+    %% Grouping
+    P --- J
+    P --- JR
+    P --- A
+```
+
+# Estructura de carpetas
+
 ## Flutter
 Para manejar múltiples controladores con distintos tipos de peticiones, se va a utilizar usar Dio + Repository Pattern + Provider
 
@@ -48,6 +111,5 @@ Para manejar múltiples controladores con distintos tipos de peticiones, se va a
 De esta manera va a ser más eficiente la gestión del flujo REST y, una vez comprendida la estructura, simplificará la implementación de nuevos elementos.
 
 
-  
 # Despliegue contenedores (Docker)
 Pendiente de implementar

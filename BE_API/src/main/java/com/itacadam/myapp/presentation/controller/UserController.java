@@ -49,7 +49,7 @@ public class UserController {
         service.removeUser(id);
     }
 
-    @GetMapping
+    @GetMapping("/getall")
     public List<UserResponse> getAll() {
         return service.getAllUsers().stream()
                 .map(mapper::toResponse)

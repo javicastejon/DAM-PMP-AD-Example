@@ -24,6 +24,9 @@ public class UserEntity {
     private boolean administrador;
    
 
+    public UserEntity() {
+    }
+
     public UserEntity(Long id, String nombre, String contrasena, int edad, boolean administrador) {
         this.id = id;
         this.nombre = nombre;
