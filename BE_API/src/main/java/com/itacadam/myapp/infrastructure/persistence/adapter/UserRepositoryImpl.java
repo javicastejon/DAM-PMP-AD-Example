@@ -5,19 +5,20 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.itacadam.myapp.common.mapper.UserMapper;
+
 import com.itacadam.myapp.domain.models.User;
 import com.itacadam.myapp.domain.repository.UserRepository;
+import com.itacadam.myapp.infrastructure.persistence.mapper.UserPersistenceMapper;
 import com.itacadam.myapp.infrastructure.persistence.repository.JpaUserRepository;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
 
     private final JpaUserRepository jpaRepository;
-    private final UserMapper mapper;
+    private final UserPersistenceMapper mapper;
 
     public UserRepositoryImpl(JpaUserRepository jpaRepository,
-                              UserMapper mapper) {
+                              UserPersistenceMapper mapper) {
         this.jpaRepository = jpaRepository;
         this.mapper = mapper;
     }

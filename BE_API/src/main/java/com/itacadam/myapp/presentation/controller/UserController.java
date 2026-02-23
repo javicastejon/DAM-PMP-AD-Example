@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.itacadam.myapp.application.service.UserService;
-import com.itacadam.myapp.common.mapper.UserMapper;
 import com.itacadam.myapp.presentation.dto.request.UserRequest;
 import com.itacadam.myapp.presentation.dto.response.UserResponse;
+import com.itacadam.myapp.presentation.mapper.UserPresentationMapper;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import java.util.List;
 public class UserController {
 
     private final UserService service;
-    private final UserMapper mapper;
+    private final UserPresentationMapper mapper;
 
-    public UserController(UserService service, UserMapper mapper) {
+    public UserController(UserService service, UserPresentationMapper mapper) {
         this.service = service;
         this.mapper = mapper;
     }

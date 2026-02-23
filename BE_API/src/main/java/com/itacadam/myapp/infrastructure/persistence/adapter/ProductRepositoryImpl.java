@@ -4,20 +4,19 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
-
-import com.itacadam.myapp.common.mapper.ProductMapper;
 import com.itacadam.myapp.domain.models.Product;
 import com.itacadam.myapp.domain.repository.ProductRepository;
+import com.itacadam.myapp.infrastructure.persistence.mapper.ProductPersistenceMapper;
 import com.itacadam.myapp.infrastructure.persistence.repository.JpaProductRepository;
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
 
     private final JpaProductRepository jpaRepository;
-    private final ProductMapper mapper;
+    private final ProductPersistenceMapper mapper;
 
     public ProductRepositoryImpl(JpaProductRepository jpaRepository,
-                              ProductMapper mapper) {
+                              ProductPersistenceMapper mapper) {
         this.jpaRepository = jpaRepository;
         this.mapper = mapper;
     }

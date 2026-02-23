@@ -5,19 +5,19 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import com.itacadam.myapp.common.mapper.OrderMapper;
 import com.itacadam.myapp.domain.models.Order;
 import com.itacadam.myapp.domain.repository.OrderRepository;
+import com.itacadam.myapp.infrastructure.persistence.mapper.OrderPersistenceMapper;
 import com.itacadam.myapp.infrastructure.persistence.repository.JpaOrderRepository;
 
 @Repository
 public class OrderRepositoryImpl implements OrderRepository {
 
     private final JpaOrderRepository jpaRepository;
-    private final OrderMapper mapper;
+    private final OrderPersistenceMapper mapper;
 
     public OrderRepositoryImpl(JpaOrderRepository jpaRepository,
-                              OrderMapper mapper) {
+                              OrderPersistenceMapper mapper) {
         this.jpaRepository = jpaRepository;
         this.mapper = mapper;
     }

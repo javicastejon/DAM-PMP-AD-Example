@@ -5,9 +5,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.itacadam.myapp.application.service.OrderService;
-import com.itacadam.myapp.common.mapper.OrderMapper;
 import com.itacadam.myapp.presentation.dto.request.OrderRequest;
 import com.itacadam.myapp.presentation.dto.response.OrderResponse;
+import com.itacadam.myapp.presentation.mapper.OrderPresentationMapper;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import java.util.List;
 public class OrderController {
 
     private final OrderService _service;
-    private final OrderMapper _mapper;
+    private final OrderPresentationMapper _mapper;
 
-    public OrderController(OrderService service, OrderMapper mapper) {
+    public OrderController(OrderService service, OrderPresentationMapper mapper) {
         this._service = service;
         this._mapper = mapper;
     }

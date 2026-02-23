@@ -4,9 +4,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import com.itacadam.myapp.application.service.ProductService;
-import com.itacadam.myapp.common.mapper.ProductMapper;
 import com.itacadam.myapp.presentation.dto.request.ProductRequest;
 import com.itacadam.myapp.presentation.dto.response.ProductResponse;
+import com.itacadam.myapp.presentation.mapper.ProductPresentationMapper;
+
 import java.util.List;
 
 @RestController
@@ -15,9 +16,9 @@ import java.util.List;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductMapper _mapper;
+    private final ProductPresentationMapper _mapper;
 
-    public ProductController(ProductService productService, ProductMapper mapper) {
+    public ProductController(ProductService productService, ProductPresentationMapper mapper) {
         this.productService = productService;
         this._mapper = mapper;
     }
