@@ -45,13 +45,7 @@ public class OrderService {
 
     public List<Order> getAllOrders() {
         logger.info("Listado de pedidos");
-
-        try {
-            return orderRepository.findAll();
-        } catch (Exception e) {
-            logger.error("Error en listado de pedidos {}", e);
-            return new ArrayList<>();
-        }       
+        return orderRepository.findAll();
     }
 
 }

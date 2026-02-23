@@ -1,6 +1,7 @@
 package com.itacadam.myapp.presentation.controller;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.itacadam.myapp.application.service.OrderService;
@@ -24,10 +25,13 @@ public class OrderController {
     }
 
     @PostMapping
-    public OrderResponse create(@RequestBody OrderRequest request) {
-        return _mapper.toResponse(
-            _service.createOrder(_mapper.toDomain(request))
-        );
+    public ResponseEntity<OrderResponse> create(@RequestBody OrderRequest request) {
+        var order = _service.createOrder(_mapper.toDomain(request));
+        var response = _mapper.toResponse(order);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 
     @PutMapping("/{id}")
@@ -44,9 +48,9 @@ public class OrderController {
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         _service.removeOrder(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/getall")
