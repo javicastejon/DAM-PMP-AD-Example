@@ -4,6 +4,7 @@ public record UserRequest(
     String nombre,
     String contrasena,
     int edad,
-    boolean administrador
+    boolean administrador,
+    String role
 ) {
 }

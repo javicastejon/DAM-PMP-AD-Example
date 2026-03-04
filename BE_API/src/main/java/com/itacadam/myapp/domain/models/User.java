@@ -7,7 +7,8 @@ public class User {
     private String contrasena;
     private int edad;
     private boolean administrador;
-  
+    private String role;
+
     public User() {
     }
 
@@ -17,6 +18,7 @@ public class User {
         this.contrasena = contrasena;
         this.edad = edad;
         this.administrador = administrador;
+        this.role = administrador ? "ADMIN" : "USER";
     }
 
 
@@ -52,6 +54,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
 

@@ -5,6 +5,7 @@ public record UserResponse(
     String nombre,
     String contrasena,
     int edad,
-    boolean administrador
+    boolean administrador,
+    String role
 ) {
 }

@@ -6,11 +6,18 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Run Backend",
+            "name": "Launch Current File",
             "request": "launch",
-            "mainClass": "com.itacadam.myapp.MyappApplication",
-            "projectName": "myapp"
+            "mainClass": "${file}"
         },
+
+        // {
+        //     "type": "java",
+        //     "name": "Run Backend",
+        //     "request": "launch",
+        //     "mainClass": "com.itacadam.myapp.MyappApplication",
+        //     "projectName": "myapp"
+        // },
         {
             "name": "Run FE (Chrome)",
             "program": "lib/main.dart",

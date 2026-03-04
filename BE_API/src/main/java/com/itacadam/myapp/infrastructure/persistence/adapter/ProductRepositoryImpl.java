@@ -3,6 +3,7 @@ package com.itacadam.myapp.infrastructure.persistence.adapter;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import com.itacadam.myapp.domain.models.Product;
 import com.itacadam.myapp.domain.repository.ProductRepository;
@@ -13,6 +14,7 @@ import com.itacadam.myapp.infrastructure.persistence.repository.JpaProductReposi
 public class ProductRepositoryImpl implements ProductRepository {
 
     private final JpaProductRepository jpaRepository;
+    @Autowired
     private final ProductPersistenceMapper mapper;
 
     public ProductRepositoryImpl(JpaProductRepository jpaRepository,

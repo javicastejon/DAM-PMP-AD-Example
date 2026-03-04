@@ -3,11 +3,13 @@ package com.itacadam.myapp.infrastructure.persistence.adapter;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
 import com.itacadam.myapp.domain.models.User;
 import com.itacadam.myapp.domain.repository.UserRepository;
+import com.itacadam.myapp.infrastructure.persistence.entity.UserEntity;
 import com.itacadam.myapp.infrastructure.persistence.mapper.UserPersistenceMapper;
 import com.itacadam.myapp.infrastructure.persistence.repository.JpaUserRepository;
 
@@ -15,6 +17,7 @@ import com.itacadam.myapp.infrastructure.persistence.repository.JpaUserRepositor
 public class UserRepositoryImpl implements UserRepository {
 
     private final JpaUserRepository jpaRepository;
+    @Autowired
     private final UserPersistenceMapper mapper;
 
     public UserRepositoryImpl(JpaUserRepository jpaRepository,
@@ -42,5 +45,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     public void deleteById(Long id) {
         jpaRepository.deleteById(id);
+    }
+
+    @Override
+    public Object findByNombre(String nombre) {
+        return jpaRepository.findUserByName(nombre).map(mapper::toDomain).orElse(null);
     }
 }
