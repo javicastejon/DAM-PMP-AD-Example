@@ -7,7 +7,7 @@ public class User {
     private String contrasena;
     private int edad;
     private boolean administrador;
-    private String role;
+    private String rol;
 
     public User() {
     }
@@ -18,7 +18,7 @@ public class User {
         this.contrasena = contrasena;
         this.edad = edad;
         this.administrador = administrador;
-        this.role = administrador ? "ADMIN" : "USER";
+        this.rol = administrador ? "ADMIN" : "USER";
     }
 
 
@@ -56,12 +56,12 @@ public class User {
         this.id = id;
     }
 
-    public String getRole() {
-        return role;
+    public String getRol() {
+        return rol;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
 

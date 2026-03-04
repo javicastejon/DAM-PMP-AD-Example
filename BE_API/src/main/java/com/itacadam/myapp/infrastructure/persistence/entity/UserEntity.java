@@ -1,8 +1,6 @@
 package com.itacadam.myapp.infrastructure.persistence.entity;
 import jakarta.persistence.*;
 
-import java.util.Objects;
-
 @Entity
 @Table(name = "User")
 public class UserEntity {
@@ -22,17 +20,20 @@ public class UserEntity {
 
     @Column(name = "administrador")
     private boolean administrador;
-   
+
+    @Column(name = "rol")
+    private String rol;
 
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String nombre, String contrasena, int edad, boolean administrador) {
+    public UserEntity(Long id, String nombre, String contrasena, int edad, boolean administrador, String rol) {
         this.id = id;
         this.nombre = nombre;
         this.contrasena = contrasena;
         this.edad = edad;
         this.administrador = administrador;
+        this.rol = rol;
     }
 
     public Long getId() {
@@ -73,6 +74,14 @@ public class UserEntity {
 
     public void setAdministrador(boolean administrador) {
         this.administrador = administrador;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
 

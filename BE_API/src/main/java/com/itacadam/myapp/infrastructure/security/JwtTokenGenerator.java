@@ -20,7 +20,7 @@ public class JwtTokenGenerator implements TokenGenerator {
     public String generate(User user) {
         return Jwts.builder()
                 .setSubject(user.getNombre())
-                .claim("role", user.getRole())
+                .claim("rol", user.getRol())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 86400000))
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes()), SignatureAlgorithm.HS256)
