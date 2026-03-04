@@ -1,10 +1,14 @@
 package com.itacadam.myapp.application.service;
 
 import com.itacadam.myapp.domain.repository.UserRepository;
+
+import org.springframework.stereotype.Service;
+
 import com.itacadam.myapp.common.util.PasswordHasher;
 import com.itacadam.myapp.common.util.TokenGenerator;
 import com.itacadam.myapp.domain.models.User;
 
+@Service
 public class AuthenticateService {
 
     private final UserRepository userRepository;
