@@ -3,7 +3,7 @@ package com.itacadam.myapp.presentation.controller;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import com.itacadam.myapp.application.service.ProductService;
+import com.itacadam.myapp.application.usecase.product.ProductService;
 import com.itacadam.myapp.presentation.dto.request.ProductRequest;
 import com.itacadam.myapp.presentation.dto.response.ProductResponse;
 import com.itacadam.myapp.presentation.mapper.ProductPresentationMapper;

@@ -1,4 +1,4 @@
-package com.itacadam.myapp.common.util;
+package com.itacadam.myapp.infrastructure.security;
 
 import com.itacadam.myapp.domain.models.User;
 

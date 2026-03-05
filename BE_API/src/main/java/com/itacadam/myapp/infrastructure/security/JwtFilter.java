@@ -15,6 +15,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.lang.NonNull;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -22,9 +23,9 @@ public class JwtFilter extends OncePerRequestFilter {
     private final String SECRET = "super_secret_key_super_secret_key";
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain chain)
+    protected void doFilterInternal(@NonNull HttpServletRequest request,
+                                    @NonNull HttpServletResponse response,
+                                    @NonNull FilterChain chain)
             throws IOException, ServletException {
 
         String header = request.getHeader("Authorization");

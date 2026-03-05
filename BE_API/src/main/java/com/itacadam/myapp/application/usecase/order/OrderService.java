@@ -1,4 +1,4 @@
-package com.itacadam.myapp.application.service;
+package com.itacadam.myapp.application.usecase.order;
 
 
 import org.slf4j.Logger;

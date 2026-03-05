@@ -4,7 +4,6 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-import com.itacadam.myapp.common.util.TokenGenerator;
 import com.itacadam.myapp.domain.models.User;
 
 import io.jsonwebtoken.Jwts;

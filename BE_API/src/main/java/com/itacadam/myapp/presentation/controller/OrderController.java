@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.itacadam.myapp.application.service.OrderService;
+import com.itacadam.myapp.application.usecase.order.OrderService;
 import com.itacadam.myapp.presentation.dto.request.OrderRequest;
 import com.itacadam.myapp.presentation.dto.response.OrderResponse;
 import com.itacadam.myapp.presentation.mapper.OrderPresentationMapper;

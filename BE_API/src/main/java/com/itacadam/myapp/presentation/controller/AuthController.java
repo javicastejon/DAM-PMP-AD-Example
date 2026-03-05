@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.itacadam.myapp.application.service.AuthenticateService;
-import com.itacadam.myapp.common.util.PasswordHasher;
-import com.itacadam.myapp.common.util.TokenGenerator;
+import com.itacadam.myapp.application.usecase.auth.AuthenticateUseCase;
 import com.itacadam.myapp.domain.repository.UserRepository;
+import com.itacadam.myapp.infrastructure.security.PasswordHasher;
+import com.itacadam.myapp.infrastructure.security.TokenGenerator;
 import com.itacadam.myapp.presentation.dto.request.LoginRequest;
 
 @RestController
@@ -20,12 +20,12 @@ import com.itacadam.myapp.presentation.dto.request.LoginRequest;
 @CrossOrigin(origins = "*")
 public class AuthController {
 
-    private final AuthenticateService useCase;
+    private final AuthenticateUseCase useCase;
 
     public AuthController(UserRepository userRepository,
                           PasswordHasher passwordHasher,
                           TokenGenerator tokenGenerator) {
-        this.useCase = new AuthenticateService(
+        this.useCase = new AuthenticateUseCase(
                 userRepository,
                 passwordHasher,
                 tokenGenerator

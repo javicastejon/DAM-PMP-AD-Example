@@ -1,7 +1,6 @@
 package com.itacadam.myapp.infrastructure.security;
 
 import org.springframework.stereotype.Component;
-import com.itacadam.myapp.common.util.PasswordHasher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Component
